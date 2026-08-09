@@ -1,5 +1,5 @@
 Slow ahh sorting algorithm.
-
+## Abstract
 Basically, we go through the array or list, find the smallest element, and add it to a new sorted array and remove it from the old array. We repeat this until we have a sorted array and the original is empty. $O(n^2)$ time complexity (super slow.)
 
 ```python

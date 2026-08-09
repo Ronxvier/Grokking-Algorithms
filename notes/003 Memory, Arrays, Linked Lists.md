@@ -1,3 +1,4 @@
+## Abstract
 	Arrays and linked lists are both used to store items in memory, Arrays take up contiguous memory while linked lists store entries anywhere in memory.
 
 Linked lists are able to store items anywhere in memory as every item stores the address of the next item in the list. A bunch of random memory addresses linked together.
