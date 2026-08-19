@@ -49,7 +49,7 @@ def breadth_first_search(root):
             return True
         else:
             search_queue += graph[current].arr
-        print("No target found.")
-        return False
+    print("No target found.")
+    return False
 breadth_first_search(node1)
 
