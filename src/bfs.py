@@ -1,3 +1,5 @@
+"""
+// OLD IMPLEMENTATION, (O(N) DEQUEUE)
 class queue:
     def __init__(self, arr):
         self.arr = arr
@@ -12,10 +14,30 @@ class queue:
         for el in self.arr:
             temparr.append(el.name)
         return temparr
+"""
+
 class node:
     def __init__ (self, name, isTarget):
         self.name = name
         self.isTarget = isTarget
+
+class queue:
+    def __init__(self, arr):
+        self.arr = arr
+        self.head = 0 # Front of list
+    def enqueue(el):
+        self.arr.append(el)
+    def dequeue():
+        el = self.arr[self.head] # get first element
+        self.head +=1 # head is now next element
+        if self.head > (len(self.arr)/2): # compact the list every now and again
+            self.arr = self.arr[self.head:]
+            self.head = 0
+    def printlist(self):
+        temparr = []
+        for el in self.arr[self.head:]:
+            temparr.append(el.name)
+        return temparr
 graph = {}
 node1 = node("node1",False)
 node2 = node("node2",False)
@@ -30,6 +52,7 @@ graph[node2] = queue([node6, node7])
 graph[node3] = queue([node5])
 graph[node4] = queue([])
 graph[node5] = queue([])
+
 graph[node6] = queue([])
 graph[node7] = queue([node4])
 for key, value in graph.items():
@@ -41,7 +64,7 @@ def breadth_first_search(root):
     if root.isTarget:
         print(f"Target: {root}")
         return
-    search_queue = graph[root].arr
+    search_queue = list(graph[root].arr) # without list() the graph mutates
     while search_queue:
         current = search_queue.pop(0)
         if current.isTarget:
@@ -52,4 +75,4 @@ def breadth_first_search(root):
     print("No target found.")
     return False
 breadth_first_search(node1)
-
+breadth_first_search(node1)
