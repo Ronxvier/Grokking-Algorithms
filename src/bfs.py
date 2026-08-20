@@ -61,17 +61,19 @@ for key, value in graph.items():
             value: {value.printlist()}
           """)
 def breadth_first_search(root):
+    searched=[] # guard to prevent from looping and searching entries that have already been searched
     if root.isTarget:
         print(f"Target: {root}")
         return
     search_queue = list(graph[root].arr) # without list() the graph mutates
     while search_queue:
-        current = search_queue.pop(0)
-        if current.isTarget:
-            print(f"Target: {current.name}")
-            return True
-        else:
-            search_queue += graph[current].arr
+        if not node in searched:
+            current = search_queue.pop(0)
+            if current.isTarget:
+                print(f"Target: {current.name}")
+                return True
+            else:
+                search_queue += graph[current].arr
     print("No target found.")
     return False
 breadth_first_search(node1)
